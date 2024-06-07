@@ -1,0 +1,88 @@
+<% include('../layouts/header.ejs') %>
+
+
+<div class="container">
+    <h1>This is the Admin page</h1>
+
+
+<button onclick="location.href='/admin/dashboard'">Dashboard</button>
+
+    <h2>Welcome, <%= admin.name %></h2>
+
+    <table>
+        <tr>
+            <td>Email </td>
+            <td><%= admin.email %></td>
+        </tr>
+    </table>
+
+    <button onclick="location.href='/admin/logout'">Logout</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+
+.container {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #666;
+}
+
+table {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+    </style>
+
+
+<% include('../layouts/footer.ejs') %>

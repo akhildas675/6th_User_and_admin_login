@@ -1,0 +1,98 @@
+<% include('../layouts/header.ejs') %>
+
+
+<div class="container">
+    <h1>Add New User</h1>
+
+    <form action="/admin/addUser" method="post" novalidate>
+        <input type="text" name="name" placeholder="Enter your name" required>
+        <br><br>
+        <input type="number" name="mobile" placeholder="Enter your mobile number" required>
+        <br><br>
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <br><br>
+        <input type="password" name="password" placeholder="Enter your password" required>
+        <br><br>
+        <button type="submit">Add User</button>
+    </form>
+
+    <% if(typeof message !=='undefined'){ %>
+        <p><%= message %></p>
+    <% } %>
+
+    <button type="button" onclick="location.href='/admin/dashboard'">Go Back</button>
+</div>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    p {
+        color: red;
+        text-align: center;
+    }
+
+    form {
+        text-align: center;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="password"],
+    button[type="submit"],
+    button[type="button"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    button[type="button"] {
+        background-color: #ccc;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button[type="button"]:hover {
+        background-color: #999;
+    }
+</style>
+
+
+<% include('../layouts/footer.ejs') %>

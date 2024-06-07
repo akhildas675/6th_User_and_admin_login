@@ -1,0 +1,97 @@
+<% include('../layouts/header.ejs') %>
+
+<div class="edit-user-container">
+    <h1>Edit user</h1>
+
+    <form action="/admin/editUser" method="post">
+        <input type="name" name="name" placeholder="Enter name" value="<%= user.name %>">
+        <input type="email" name="email" placeholder="Enter email" value="<%= user.email %>">
+        <input type="number" name="mobile" placeholder="Enter mobile number" value="<%= user.mobile %>">
+        <input type="hidden" name="id" value="<%= user._id %>">
+        <input type="submit" value="Update" class="btn-submit">
+    </form>
+
+    <button type="button" onclick="location.href='/admin/dashboard'">Go Back</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .edit-user-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .edit-user-container h1 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .edit-user-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .edit-user-container form input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .edit-user-container form input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .edit-user-container form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .edit-user-container button {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .edit-user-container button:hover {
+            background-color: #c82333;
+        }
+    </style>
+    
+<% include('../layouts/footer.ejs') %>

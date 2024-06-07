@@ -1,0 +1,189 @@
+<% include('../layouts/header.ejs') %>
+
+<section class="dashboard">
+    <h1>Dashboard</h1>
+
+    <div class="actions">
+        <a href="/admin/newUser" class="btn">Add New User</a>
+    </div> 
+
+    <!-- Add the search box -->
+    <div class="search-box">
+        <input type="text" id="userNameSearch" placeholder="Search by User Name">
+        <button onclick="searchUser()">Search</button>
+    </div>
+
+    <table class="user-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (users.length > 0) { %>
+                <% for (let i = 0; i < users.length; i++) { %>
+                    <tr>
+                        <td><%= users[i].name %></td>
+                        <td><%= users[i].email %></td>
+                        <td><%= users[i].mobile %></td>
+                        <td>
+                            <a href="/admin/editUser?id=<%= users[i]._id %>" class="action-link">Edit</a>
+                            <a href="/admin/deleteUser?id=<%= users[i]._id %>" class="action-link">Delete</a>
+                        </td>
+                    </tr>
+                <% } %>
+            <% } else { %>
+                <tr>
+                    <td colspan="3">Users Not found</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+
+    <a href="/admin/home" class="btn">Go to Home</a>
+</section>
+
+<% include('../layouts/footer.ejs') %>
+
+<script>
+    function searchUser() {
+
+        var input;
+        var filter; 
+        var table; 
+        var tr; 
+        var td; 
+        var i; 
+        var txtValue;
+        input = document.getElementById("userNameSearch");
+        filter = input.value.toUpperCase();
+        table = document.querySelector(".user-table");
+        tr = table.getElementsByTagName("tr");
+  
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0]; 
+
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+
+    Swal.fire("SweetAlert2 is working!");
+</script>
+
+
+
+
+
+
+<style>
+
+.body{
+     background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);;
+}
+    
+.dashboard {
+    margin: 20px;
+}
+
+.dashboard h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.actions {
+    margin-bottom: 20px;
+}
+
+.actions .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.actions .btn:hover {
+    background-color: #0056b3;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.user-table th, .user-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.user-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.user-table td {
+    text-align: left;
+}
+
+.user-table .action-link {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #28a745;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.user-table .action-link + .action-link {
+    margin-left: 5px;
+}
+
+.user-table .action-link:hover {
+    background-color: #218838;
+}
+
+.user-table .action-link.delete {
+    background-color: #dc3545;
+}
+
+.user-table .action-link.delete:hover {
+    background-color: #c82333;
+}
+/* Add these styles to your existing CSS file */
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+
+.footer {
+    margin-top: 20px;
+    text-align: center;
+    color: #888;
+}
+
+</style>

@@ -1,0 +1,94 @@
+<% include('../layouts/header.ejs') %>
+
+
+
+<div class="container">
+    <h1>Admin Login</h1>
+
+    <% if(typeof message !== 'undefined'){ %>
+        <h3><%= message %></h3>
+    <% } %>
+
+    <form action="/admin/" method="post">
+        <input type="email" name="email" placeholder="Enter email">
+        <br><br>
+        <input type="password" name="password" placeholder="Enter the password">
+        <br><br>
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #607D8B;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    h3 {
+        color: #d9534f;
+        text-align: center;
+    }
+
+    form {
+        text-align: center;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<% include('../layouts/footer.ejs') %>
